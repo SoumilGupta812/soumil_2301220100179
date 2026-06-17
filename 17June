@@ -15,3 +15,20 @@ class Solution {
         return false;
     }
 }
+// calc steps
+static int steps(int D){
+        if(D-1==0||D-2==0||D-3==0||D-4==0||D-5==0)
+        return 1;
+        int a=steps(D-1);
+        int b=steps(D-2);
+        int c=steps(D-3);
+        int d=steps(D-4);
+        int e=steps(D-5);
+        return 1+Math.min(Math.min(Math.min(a,b),Math.min(c,d)),e);
+}
+
+static String game(int num){
+    if(num%3==0)
+        return "B wins";
+    return "A wins";
+}
